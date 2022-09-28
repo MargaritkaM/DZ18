@@ -21,7 +21,7 @@ class ApplicationTest {
 
 
     @BeforeAll
-    static void setUpAll(){
+    static void setUpAll() {
         WebDriverManager.chromedriver().setup();
 //        System.setProperty("webdriver.chrome.driver", "driver/win/chromedriver.exe");
     }
@@ -36,9 +36,9 @@ class ApplicationTest {
     }
 
     @AfterEach
-    void tearsDown(){
+    void tearsDown() {
         driver.quit();
-        driver=null;
+        driver = null;
     }
 
 //   @BeforeEach
@@ -47,9 +47,9 @@ class ApplicationTest {
 //    }
 
     @Test
-    void test(){
-        driver.get ("http://localhost:9999/");
-        List<WebElement> elements =driver.findElements(By.className("input__control"));
+    void test() {
+        driver.get("http://localhost:9999/");
+        List<WebElement> elements = driver.findElements(By.className("input__control"));
         elements.get(0).sendKeys("Мусатова Маргарита");
         elements.get(1).sendKeys("+79169044591");
         driver.findElement(By.className("checkbox__text")).click();
@@ -57,9 +57,10 @@ class ApplicationTest {
         String text = driver.findElement(By.className("paragraph")).getText();
         assertEquals("Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.", text.trim());
     }
+
     @Test
-    void test2(){
-        driver.get ("http://localhost:9999/");
+    void test2() {
+        driver.get("http://localhost:9999/");
         driver.findElement(By.cssSelector("[data-test-id='name'] input")).sendKeys("Иван Петров-Иванов");
 //        driver.findElement(By.cssSelector("[type=text]")).sendKeys("Мусатова Маргарита");
         driver.findElement(By.cssSelector("[type=tel]")).sendKeys("+79169044591");
@@ -72,7 +73,7 @@ class ApplicationTest {
 
     }
 
-//    @Test
+    //    @Test
 //    void test3(){
 //        driver.get ("http://localhost:9999/");
 //        driver.findElement(By.cssSelector("[type=text]")).sendKeys("Musatova Margarita");
@@ -83,5 +84,15 @@ class ApplicationTest {
 //        assertEquals("Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы.", text.trim());
 //
 //    }
+    @Test
+    void test3() {
+        driver.get("http://localhost:9999/");
+        driver.findElement(By.cssSelector("[data-test-id='name'] input")).sendKeys("Musatova Margarita");
+        driver.findElement(By.cssSelector("[type=tel]")).sendKeys("+79169044591");
+        driver.findElement(By.cssSelector("[data-test-id='agreement']")).click();
+        driver.findElement(By.cssSelector(".button__text")).click();
+        String text = driver.findElement(By.className("input__sub")).getText();
+        assertEquals("Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы.", text.trim());
 
+    }
 }
