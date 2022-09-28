@@ -63,10 +63,11 @@ class ApplicationTest {
         driver.findElement(By.cssSelector("[data-test-id='name'] input")).sendKeys("Иван Петров-Иванов");
 //        driver.findElement(By.cssSelector("[type=text]")).sendKeys("Мусатова Маргарита");
         driver.findElement(By.cssSelector("[type=tel]")).sendKeys("+79169044591");
-//        driver.findElement(By.cssSelector("[data-test-id='agreement']")).click();
-        driver.findElement(By.cssSelector(".checkbox__text")).click();
+        driver.findElement(By.cssSelector("[data-test-id='agreement']")).click();
+//        driver.findElement(By.cssSelector(".checkbox__text")).click();
         driver.findElement(By.cssSelector(".button__text")).click();
-        String text = driver.findElement(By.className("paragraph")).getText();
+//        String text = driver.findElement(By.className("paragraph")).getText();
+        String text = driver.findElement(By.cssSelector("[data-test-id='order-success']")).getText();
         assertEquals("Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.", text.trim());
 
     }
