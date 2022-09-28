@@ -41,9 +41,9 @@ class ApplicationTest {
         driver=null;
     }
 
-//    @BeforeEach
-//    void setUp1(){
-//        driver.get ("http://localhost:9999/");
+//   @BeforeEach
+//    public void setUp1(){
+//       driver.get ("http://localhost:9999/");
 //    }
 
     @Test
@@ -63,7 +63,7 @@ class ApplicationTest {
         driver.findElement(By.cssSelector("[data-test-id='name'] input")).sendKeys("Иван Петров-Иванов");
 //        driver.findElement(By.cssSelector("[type=text]")).sendKeys("Мусатова Маргарита");
         driver.findElement(By.cssSelector("[type=tel]")).sendKeys("+79169044591");
-//        driver.findElement(By.cssSelector("[data-test-id='agreement'] checkbox__control")).click();
+//        driver.findElement(By.cssSelector("[data-test-id='agreement']")).click();
         driver.findElement(By.cssSelector(".checkbox__text")).click();
         driver.findElement(By.cssSelector(".button__text")).click();
         String text = driver.findElement(By.className("paragraph")).getText();
